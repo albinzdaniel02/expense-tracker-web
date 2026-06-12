@@ -87,13 +87,13 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ## Phase 5: Frontend SPA Routing, State & Charts (`P5`)
 - [x] **P5-1**: Implement routing, navigation events, modal control triggers, and theme toggling persistence inside `src/main/resources/static/js/app.js`.
   - **Branch**: `P5-1`
-- [ ] **P5-2**: Integrate Chart.js via CDN link and build helper drawing functions for category donut chart and monthly trend bar chart, handling lifecycle destruction.
+- [x] **P5-2**: Integrate Chart.js via CDN link and build helper drawing functions for category donut chart and monthly trend bar chart, handling lifecycle destruction.
   - **Branch**: `P5-2`
 
 ### Phase 5 Exit Checks
-- [ ] Navigation changes between sections occur smoothly without triggering a full page reload.
-- [ ] Theme toggles instantly and preserves state in local storage upon refresh.
-- [ ] Empty/mock data charts render correctly on the dashboard page.
+- [x] Navigation changes between sections occur smoothly without triggering a full page reload.
+- [x] Theme toggles instantly and preserves state in local storage upon refresh.
+- [x] Empty/mock data charts render correctly on the dashboard page.
 
 ---
 
