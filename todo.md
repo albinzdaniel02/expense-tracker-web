@@ -45,7 +45,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
   - **Branch**: `P2-1`
 - [x] **P2-2**: Create `BudgetService.java` (`com.expensetracker.service.BudgetService`) handling retrieval, default seeding of the singleton budget limit (ID: `00000000-0000-0000-0000-000000000000`), and updating budget configurations.
   - **Branch**: `P2-2`
-- [ ] **P2-3**: Create `ExpenseService.java` (`com.expensetracker.service.ExpenseService`) containing full CRUD operations, specification-based filtering (by category/date), and aggregation computations (current month spend, trends).
+- [x] **P2-3**: Create `ExpenseService.java` (`com.expensetracker.service.ExpenseService`) containing full CRUD operations, specification-based filtering (by category/date), and aggregation computations (current month spend, trends).
   - **Branch**: `P2-3`
 - [ ] **P2-4**: Implement comprehensive backend unit tests (`ExpenseServiceTest.java` and `BudgetServiceTest.java`) matching the requirements in `testing-plan.md`.
   - **Branch**: `P2-4`
