@@ -82,6 +82,9 @@ function setTheme(theme) {
 
 function toggleTheme() {
     setTheme(state.theme === 'light' ? 'dark' : 'light');
+    if (state.currentView === 'dashboard-view') {
+        refreshDashboard();
+    }
 }
 
 // Event Listeners Setup
