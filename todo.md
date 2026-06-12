@@ -14,13 +14,13 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ## Phase 0: Development Environment & CI Setup (`P0`)
 - [x] **P0-1**: Initialize the project directory structure, configure `pom.xml` with dependencies (Spring Web, Spring Data JPA, Lombok, Validation, PostgreSQL Driver), configure database parameters in `application.properties`, and define `docker-compose.yml` for a containerized PostgreSQL 16 database.
   - **Branch**: `P0-1`
-- [ ] **P0-2**: Set up GitHub Actions CI workflow (`.github/workflows/ci.yml`) to automatically compile the application, run code checks, and execute tests on every push/pull request.
+- [x] **P0-2**: Set up GitHub Actions CI workflow (`.github/workflows/ci.yml`) to automatically compile the application, run code checks, and execute tests on every push/pull request.
   - **Branch**: `P0-2`
 
 ### Phase 0 Exit Checks
-- [ ] Docker container for PostgreSQL (`expense-tracker-db`) runs locally and accepts connections on port 5432.
-- [ ] The Spring Boot backend compiles successfully with no Maven/dependency issues (`mvn compile`).
-- [ ] GitHub Actions workflow configuration is valid and successfully triggers on push.
+- [x] Docker container for PostgreSQL (`expense-tracker-db`) runs locally and accepts connections on port 5432.
+- [x] The Spring Boot backend compiles successfully with no Maven/dependency issues (`mvn compile`).
+- [x] GitHub Actions workflow configuration is valid and successfully triggers on push.
 
 ---
 
