@@ -31,12 +31,12 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
   - **Branch**: `P1-2`
 - [x] **P1-3**: Implement `ExpenseRepository.java` (`com.expensetracker.repository.ExpenseRepository`) interface with custom JPQL queries for overall spend, month-specific range spend, and category breakdown aggregations.
   - **Branch**: `P1-3`
-- [ ] **P1-4**: Implement `BudgetSettingsRepository.java` (`com.expensetracker.repository.BudgetSettingsRepository`) for saving budget limits.
+- [x] **P1-4**: Implement `BudgetSettingsRepository.java` (`com.expensetracker.repository.BudgetSettingsRepository`) for saving budget limits.
   - **Branch**: `P1-4`
 
 ### Phase 1 Exit Checks
-- [ ] Database schema is successfully auto-generated in PostgreSQL on application startup (`spring.jpa.hibernate.ddl-auto=update`).
-- [ ] Both repository layers compile cleanly and connect database fields to JPA entities.
+- [x] Database schema is successfully auto-generated in PostgreSQL on application startup (`spring.jpa.hibernate.ddl-auto=update`).
+- [x] Both repository layers compile cleanly and connect database fields to JPA entities.
 
 ---
 
