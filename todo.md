@@ -43,7 +43,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ## Phase 2: Core Service & Business Logic (`P2`)
 - [x] **P2-1**: Create required Data Transfer Objects (DTOs) under package `com.expensetracker.dto` (`SummaryDto`, `CategorySumDto`, `MonthlyTrendDto`).
   - **Branch**: `P2-1`
-- [ ] **P2-2**: Create `BudgetService.java` (`com.expensetracker.service.BudgetService`) handling retrieval, default seeding of the singleton budget limit (ID: `00000000-0000-0000-0000-000000000000`), and updating budget configurations.
+- [x] **P2-2**: Create `BudgetService.java` (`com.expensetracker.service.BudgetService`) handling retrieval, default seeding of the singleton budget limit (ID: `00000000-0000-0000-0000-000000000000`), and updating budget configurations.
   - **Branch**: `P2-2`
 - [ ] **P2-3**: Create `ExpenseService.java` (`com.expensetracker.service.ExpenseService`) containing full CRUD operations, specification-based filtering (by category/date), and aggregation computations (current month spend, trends).
   - **Branch**: `P2-3`
