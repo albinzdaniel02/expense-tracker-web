@@ -25,7 +25,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ---
 
 ## Phase 1: Domain Entities & Repositories (`P1`)
-- [ ] **P1-1**: Create `Expense.java` entity class (`com.expensetracker.entity.Expense`) representing transaction records with JSR-380 validation.
+- [x] **P1-1**: Create `Expense.java` entity class (`com.expensetracker.entity.Expense`) representing transaction records with JSR-380 validation.
   - **Branch**: `P1-1`
 - [ ] **P1-2**: Create `BudgetSettings.java` entity class (`com.expensetracker.entity.BudgetSettings`) to represent the monthly budget limit configuration.
   - **Branch**: `P1-2`
