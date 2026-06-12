@@ -12,7 +12,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ---
 
 ## Phase 0: Development Environment & CI Setup (`P0`)
-- [ ] **P0-1**: Initialize the project directory structure, configure `pom.xml` with dependencies (Spring Web, Spring Data JPA, Lombok, Validation, PostgreSQL Driver), configure database parameters in `application.properties`, and define `docker-compose.yml` for a containerized PostgreSQL 16 database.
+- [x] **P0-1**: Initialize the project directory structure, configure `pom.xml` with dependencies (Spring Web, Spring Data JPA, Lombok, Validation, PostgreSQL Driver), configure database parameters in `application.properties`, and define `docker-compose.yml` for a containerized PostgreSQL 16 database.
   - **Branch**: `P0-1`
 - [ ] **P0-2**: Set up GitHub Actions CI workflow (`.github/workflows/ci.yml`) to automatically compile the application, run code checks, and execute tests on every push/pull request.
   - **Branch**: `P0-2`
