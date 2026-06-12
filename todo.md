@@ -61,7 +61,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
   - **Branch**: `P3-1`
 - [x] **P3-2**: Implement BudgetController.java (com.expensetracker.controller.BudgetController) with endpoints for retrieving and updating budget limits.
   - **Branch**: `P3-2`
-- [ ] **P3-3**: Create a global exception handler (`com.expensetracker.exception.GlobalExceptionHandler`) to translate validation failures and not-found exceptions into structured JSON error payloads.
+- [x] **P3-3**: Create a global exception handler (`com.expensetracker.exception.GlobalExceptionHandler`) to translate validation failures and not-found exceptions into structured JSON error payloads.
   - **Branch**: `P3-3`
 - [ ] **P3-4**: Implement controller integration tests (`ExpenseControllerTest.java` and `BudgetControllerTest.java`) utilizing MockMvc matching the requirements in `testing-plan.md`.
   - **Branch**: `P3-4`
