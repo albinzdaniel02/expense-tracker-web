@@ -283,8 +283,8 @@ body::after {
     height: 12px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 6px;
-    overflow: hidden;
     margin-bottom: var(--space-xs);
+    position: relative;
 }
 
 [data-theme="dark"] .progress-bar-track {
@@ -745,7 +745,7 @@ body::after {
 #dashboard-view:not(.hidden) .chart-card:nth-child(2) { animation-delay: 0.55s; }
 
 /* Apply page view transitions */
-.view-section:not(.hidden) {
+.view-section:not(.hidden):not(#dashboard-view) {
     animation: viewFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
