@@ -57,7 +57,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ---
 
 ## Phase 3: REST Controller Layer (`P3`)
-- [ ] **P3-1**: Implement `ExpenseController.java` (`com.expensetracker.controller.ExpenseController`) with endpoints for retrieving/filtering expenses, creating new expenses, updating entries, and deleting records.
+- [x] **P3-1**: Implement `ExpenseController.java` (`com.expensetracker.controller.ExpenseController`) with endpoints for retrieving/filtering expenses, creating new expenses, updating entries, and deleting records.
   - **Branch**: `P3-1`
 - [ ] **P3-2**: Implement `BudgetController.java` (`com.expensetracker.controller.BudgetController`) with endpoints for retrieving and updating budget limits.
   - **Branch**: `P3-2`
