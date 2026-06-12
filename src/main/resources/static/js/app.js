@@ -63,21 +63,6 @@ function setTheme(theme) {
     state.theme = theme;
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    
-    const themeBtn = document.getElementById('theme-toggle-btn');
-    if (!themeBtn) return;
-    
-    if (theme === 'dark') {
-        themeBtn.innerHTML = `
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9zm0 16a7 7 0 1 1 7-7 7.008 7.008 0 0 1-7 7z"/>
-            </svg>`;
-    } else {
-        themeBtn.innerHTML = `
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 18a6 6 0 1 1 6-6 6.008 6.008 0 0 1-6 6zm0-10a4 4 0 1 0 4 4 4.005 4.005 0 0 0-4-4zM11 1h2v3h-2zm0 19h2v3h-2zm10-9h3v2h-3zm-17 0h3v2H4zm13.657-6.243l1.414 1.414-2.121 2.121-1.414-1.414zm-12.02 12.02l1.414 1.414-2.121 2.121-1.414-1.414zm12.02 0l2.121 2.121-1.414 1.414-2.121-2.121zm-13.434-13.434l2.121 2.121-1.414 1.414-2.121-2.121z"/>
-            </svg>`;
-    }
 }
 
 function toggleTheme() {
@@ -237,12 +222,12 @@ function openExpenseModal(expense = null) {
     document.getElementById('date-input').value = expense ? expense.expenseDate : new Date().toISOString().substring(0, 10);
     
     title.innerText = expense ? 'Edit Expense' : 'Add Expense';
-    modal.classList.remove('hidden');
+    modal.classList.add('active');
 }
 
 function closeExpenseModal() {
     const modal = document.getElementById('expense-modal');
-    if (modal) modal.classList.add('hidden');
+    if (modal) modal.classList.remove('active');
 }
 
 function editExpense(id) {
@@ -407,16 +392,26 @@ function renderCategoryBreakdownChart(data) {
                 data: amounts,
                 backgroundColor: data.length > 0 
                     ? ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1', '#64748b']
-                    : ['#e2e8f0']
+                    : ['#e2e8f0'],
+                borderWidth: state.theme === 'dark' ? 2 : 1,
+                borderColor: state.theme === 'dark' ? '#1e293b' : '#ffffff',
+                hoverOffset: 4
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            cutout: '75%',
             plugins: {
                 legend: {
                     position: 'bottom',
-                    labels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text-main').trim() || '#1e293b' }
+                    labels: {
+                        color: state.theme === 'dark' ? '#cbd5e1' : '#475569',
+                        font: {
+                            family: 'Outfit',
+                            size: 12
+                        }
+                    }
                 }
             }
         }
@@ -455,7 +450,8 @@ function renderMonthlyTrendsChart(data) {
                 data: amounts,
                 backgroundColor: data.length > 0 ? 'rgba(79, 70, 229, 0.6)' : 'rgba(226, 232, 240, 0.6)',
                 borderColor: data.length > 0 ? '#4f46e5' : '#cbd5e1',
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 6
             }]
         },
         options: {
@@ -464,10 +460,20 @@ function renderMonthlyTrendsChart(data) {
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--text-main').trim() || '#1e293b' }
+                    ticks: {
+                        color: state.theme === 'dark' ? '#cbd5e1' : '#475569',
+                        font: { family: 'Outfit' }
+                    },
+                    grid: {
+                        color: state.theme === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.05)'
+                    }
                 },
                 x: {
-                    ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--text-main').trim() || '#1e293b' }
+                    ticks: {
+                        color: state.theme === 'dark' ? '#cbd5e1' : '#475569',
+                        font: { family: 'Outfit' }
+                    },
+                    grid: { display: false }
                 }
             },
             plugins: {

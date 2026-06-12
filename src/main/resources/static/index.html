@@ -7,6 +7,11 @@
     <!-- Outfit Font -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Set theme immediately to prevent light flashes on reload
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
     <!-- Chart.js via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -23,8 +28,14 @@
                 <a href="#" class="nav-item" data-target="settings-view">Settings</a>
             </nav>
             <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
-                <!-- SVG Icon will render dynamically -->
-                <span class="icon"></span>
+                <!-- Moon Icon -->
+                <svg class="theme-icon-moon" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9zm0 16a7 7 0 1 1 7-7 7.008 7.008 0 0 1-7 7z"/>
+                </svg>
+                <!-- Sun Icon -->
+                <svg class="theme-icon-sun" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 18a6 6 0 1 1 6-6 6.008 6.008 0 0 1-6 6zm0-10a4 4 0 1 0 4 4 4.005 4.005 0 0 0-4-4zM11 1h2v3h-2zm0 19h2v3h-2zm10-9h3v2h-3zm-17 0h3v2H4zm13.657-6.243l1.414 1.414-2.121 2.121-1.414-1.414zm-12.02 12.02l1.414 1.414-2.121 2.121-1.414-1.414zm12.02 0l2.121 2.121-1.414 1.414-2.121-2.121zm-13.434-13.434l2.121 2.121-1.414 1.414-2.121-2.121z"/>
+                </svg>
             </button>
         </header>
 
@@ -158,7 +169,7 @@
         </main>
 
         <!-- ADD/EDIT MODAL BACKDROP OVERLAY -->
-        <div id="expense-modal" class="modal-overlay hidden">
+        <div id="expense-modal" class="modal-overlay">
             <div class="modal-card glass-panel">
                 <div class="modal-header">
                     <h2 id="modal-title">Add Expense</h2>
