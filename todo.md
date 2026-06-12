@@ -98,7 +98,7 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ---
 
 ## Phase 6: API Integration & E2E Validation (`P6`)
-- [ ] **P6-1**: Create standard async fetch handler (`apiFetch`) and implement data loading functions for rendering the expense table and search filters in `app.js`.
+- [x] **P6-1**: Create standard async fetch handler (`apiFetch`) and implement data loading functions for rendering the expense table and search filters in `app.js`.
   - **Branch**: `P6-1`
 - [ ] **P6-2**: Connect submit/delete handlers for adding new transactions, editing existing records, removing entries, and updating budget configurations.
   - **Branch**: `P6-2`
