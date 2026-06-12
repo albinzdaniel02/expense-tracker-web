@@ -75,12 +75,12 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
 ## Phase 4: Frontend Structure & Styling (`P4`)
 - [x] **P4-1**: Create the main HTML file (`src/main/resources/static/index.html`) using semantic tags, containing layout divisions for dashboard, expense logs, settings, and CRUD modals.
   - **Branch**: `P4-1`
-- [ ] **P4-2**: Implement responsive vanilla CSS stylesheet (`src/main/resources/static/css/style.css`) using custom properties for theme styling, dark/light themes, and glassmorphism cards.
+- [x] **P4-2**: Implement responsive vanilla CSS stylesheet (`src/main/resources/static/css/style.css`) using custom properties for theme styling, dark/light themes, and glassmorphism cards.
   - **Branch**: `P4-2`
 
 ### Phase 4 Exit Checks
-- [ ] The index page loads successfully on the browser.
-- [ ] Page layout adjusts dynamically and responsive rules adapt correctly for mobile viewports.
+- [x] The index page loads successfully on the browser.
+- [x] Page layout adjusts dynamically and responsive rules adapt correctly for mobile viewports.
 
 ---
 
