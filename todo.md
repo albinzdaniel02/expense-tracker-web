@@ -102,11 +102,11 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
   - **Branch**: `P6-1`
 - [x] **P6-2**: Connect submit/delete handlers for adding new transactions, editing existing records, removing entries, and updating budget configurations.
   - **Branch**: `P6-2`
-- [ ] **P6-3**: Integrate budget threshold styling alerts (progress bar color shifting between green, orange, and red depending on consumption percentages).
+- [x] **P6-3**: Integrate budget threshold styling alerts (progress bar color shifting between green, orange, and red depending on consumption percentages).
   - **Branch**: `P6-3`
 
 ### Phase 6 Exit Checks
-- [ ] Complete CRUD workflow operates correctly, verifying browser-to-database persistence.
-- [ ] UI displays correct color styles and warnings when budget consumption matches warning and critical thresholds.
-- [ ] Maven builds successfully compile into a single self-contained executable JAR (`mvn clean package`).
-- [ ] Run the jar locally (`java -jar ...`) and complete manual validation checklist.
+- [x] Complete CRUD workflow operates correctly, verifying browser-to-database persistence.
+- [x] UI displays correct color styles and warnings when budget consumption matches warning and critical thresholds.
+- [x] Maven builds successfully compile into a single self-contained executable JAR (`mvn clean package`).
+- [x] Run the jar locally (`java -jar ...`) and complete manual validation checklist.
