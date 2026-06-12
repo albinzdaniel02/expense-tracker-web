@@ -54,12 +54,42 @@
 
 body {
     font-family: var(--font-sans);
-    background: var(--bg-main);
     color: var(--text-main);
     min-height: 100vh;
     padding: var(--space-xl) var(--space-md);
-    transition: background 0.3s ease, color 0.3s ease;
-    background-attachment: fixed;
+    transition: color 0.3s ease;
+}
+
+body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Light mode background */
+body::before {
+    background: radial-gradient(circle at top right, hsl(210, 40%, 96%), hsl(215, 25%, 85%));
+    opacity: 1;
+}
+
+/* Dark mode background */
+body::after {
+    background: radial-gradient(circle at top right, hsl(222, 47%, 11%), hsl(224, 71%, 4%));
+    opacity: 0;
+}
+
+[data-theme="dark"] body::before {
+    opacity: 0;
+}
+
+[data-theme="dark"] body::after {
+    opacity: 1;
 }
 
 .app-container {
@@ -79,8 +109,12 @@ body {
 }
 
 .glass-panel:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-2.5px);
+    box-shadow: 0 12px 40px 0 hsla(222, 47%, 11%, 0.2);
+}
+
+[data-theme="dark"] .glass-panel:hover {
+    box-shadow: 0 12px 40px 0 hsla(0, 0%, 0%, 0.55);
 }
 
 /* Header Styling */
@@ -137,6 +171,8 @@ body {
     justify-content: center;
     color: var(--text-main);
     transition: background 0.2s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .theme-toggle-btn:hover {
@@ -146,6 +182,31 @@ body {
 
 .theme-toggle-btn:active {
     transform: scale(0.95);
+}
+
+.theme-toggle-btn svg {
+    position: absolute;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+/* Default light theme state: Sun visible, Moon hidden/rotated */
+[data-theme="light"] .theme-icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+[data-theme="light"] .theme-icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+/* Dark theme state: Moon visible, Sun hidden/rotated */
+[data-theme="dark"] .theme-icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+[data-theme="dark"] .theme-icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
 }
 
 /* Grid & Layout Adjustments */
@@ -431,18 +492,38 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .modal-card {
     width: 90%;
     max-width: 500px;
     padding: var(--space-lg);
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1) translateY(0);
+    opacity: 1;
 }
 
 .modal-header {
@@ -560,6 +641,136 @@ body {
 
 .fade-out {
     animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes viewFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRow {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 8px var(--alert-critical);
+        filter: brightness(1);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--alert-critical);
+        filter: brightness(1.25);
+    }
+    100% {
+        box-shadow: 0 0 8px var(--alert-critical);
+        filter: brightness(1);
+    }
+}
+
+@keyframes pulseGlowWarning {
+    0% {
+        box-shadow: 0 0 6px var(--alert-warning);
+        filter: brightness(1);
+    }
+    50% {
+        box-shadow: 0 0 16px var(--alert-warning);
+        filter: brightness(1.15);
+    }
+    100% {
+        box-shadow: 0 0 6px var(--alert-warning);
+        filter: brightness(1);
+    }
+}
+
+@keyframes slideDownAlert {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 100px;
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+}
+
+/* Apply staggered animations to Dashboard view elements when active */
+#dashboard-view:not(.hidden) .kpi-card {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+#dashboard-view:not(.hidden) .kpi-card:nth-child(1) { animation-delay: 0.05s; }
+#dashboard-view:not(.hidden) .kpi-card:nth-child(2) { animation-delay: 0.15s; }
+#dashboard-view:not(.hidden) .kpi-card:nth-child(3) { animation-delay: 0.25s; }
+
+#dashboard-view:not(.hidden) .budget-progress-container {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.35s;
+}
+
+#dashboard-view:not(.hidden) .charts-grid > div {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+#dashboard-view:not(.hidden) .chart-card:nth-child(1) { animation-delay: 0.45s; }
+#dashboard-view:not(.hidden) .chart-card:nth-child(2) { animation-delay: 0.55s; }
+
+/* Apply page view transitions */
+.view-section:not(.hidden) {
+    animation: viewFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Apply new table row insertion animation */
+.expense-table tbody tr {
+    animation: slideInRow 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Alert styling improvements */
+.alert-banner {
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alert-banner:not(.hidden) {
+    animation: slideDownAlert 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Progress bar breathing effects on warning/critical limit states */
+.progress-bar-fill.bg-warning {
+    animation: pulseGlowWarning 2s infinite ease-in-out;
+}
+
+.progress-bar-fill.bg-critical, .progress-bar-fill.bg-danger {
+    animation: pulseGlow 2s infinite ease-in-out;
 }
 
 /* Responsive Media Queries */
