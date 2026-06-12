@@ -47,12 +47,12 @@ This document details the step-by-step roadmap for building the self-hosted **Ex
   - **Branch**: `P2-2`
 - [x] **P2-3**: Create `ExpenseService.java` (`com.expensetracker.service.ExpenseService`) containing full CRUD operations, specification-based filtering (by category/date), and aggregation computations (current month spend, trends).
   - **Branch**: `P2-3`
-- [ ] **P2-4**: Implement comprehensive backend unit tests (`ExpenseServiceTest.java` and `BudgetServiceTest.java`) matching the requirements in `testing-plan.md`.
+- [x] **P2-4**: Implement comprehensive backend unit tests (`ExpenseServiceTest.java` and `BudgetServiceTest.java`) matching the requirements in `testing-plan.md`.
   - **Branch**: `P2-4`
 
 ### Phase 2 Exit Checks
-- [ ] Unit tests pass successfully via Maven (`mvn test`).
-- [ ] Business logic code coverage validation checks pass without errors.
+- [x] Unit tests pass successfully via Maven (`mvn test`).
+- [x] Business logic code coverage validation checks pass without errors.
 
 ---
 
